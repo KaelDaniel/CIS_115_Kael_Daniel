@@ -1,3 +1,4 @@
+#this code determines if the operation is less than/equal to 0 or greater than
 num1 = input("number 1: ")
 num2 = input("number 2: ")
 num3 = input("number 3: ")
