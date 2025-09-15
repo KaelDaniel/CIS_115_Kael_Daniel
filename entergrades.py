@@ -1,0 +1,1 @@
+#this program will enter ten grades that the user inputs, and then 
