@@ -1,3 +1,5 @@
+#This program determines if a number is odd or even
+
 num1=input("number1: ")
 num2=input("number2: ")
 

@@ -1,3 +1,4 @@
+#this code determines if the value is less than 0
 num1 = input("number 1: ")
 num2 = input("number 2: ")
 
