@@ -1,9 +1,15 @@
 #this program will prompt the user to enter how many grades they want to enter, and then prompt them to enter what the grades are
 # it will then print out how many grades they entered
 
-howmanygrades = input("Would you like to enter your Grade(s)? (type y for yes): ")
+count = 0
 
-while howmanygrades == 'y':
-    grade = input("what is the grade: ")
+howmanygrades = int(input("how many grades will you enter: "))
 
-    howmanygrades = input("would you like to input another grade? (type y for yes): ")
+while howmanygrades > count:
+    count = count + 1
+
+    grade = int(input("what is the grade: "))
+
+
+    if count >= howmanygrades:
+        print(f"You have entered {howmanygrades} grades")
