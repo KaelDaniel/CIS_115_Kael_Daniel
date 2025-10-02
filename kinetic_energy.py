@@ -2,7 +2,7 @@
 
 import math
 
-mass = int(input("give the mas of an object"))
+mass = int(input("give the mas of an object: "))
 velocity = int(input("give a velocity of an object: "))
 
 def kinetic_energy(mass,velocity):
