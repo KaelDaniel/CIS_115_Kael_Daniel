@@ -1,11 +1,11 @@
 #this program will take student grades and calculate the average of all the grades within the dictionary
 
-x = int(input("Enter grade for Winters: ")) #long line of user inputs for the students grades
-y = int(input("Enter grade for Dian: "))
-z = int(input("Enter grade for Charles: "))
-a = int(input("Enter grade for Bobby: "))
-b = int(input("Enter grade for Aly: "))
-c = int(input("Enter grade for Nicole: "))
+x = float(input("Enter grade for Winters: ")) #long line of user inputs for the students grades
+y = float(input("Enter grade for Dian: "))
+z = float(input("Enter grade for Charles: "))
+a = float(input("Enter grade for Bobby: "))
+b = float(input("Enter grade for Aly: "))
+c = float(input("Enter grade for Nicole: "))
 
 student_grades = {
     "Nicole": c,
