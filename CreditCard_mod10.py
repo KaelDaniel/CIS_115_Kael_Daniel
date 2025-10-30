@@ -5,7 +5,6 @@ CC = int(input("Enter your credit card number: "))
 
 #defining the function to validate credit card number
 def ValidateCreditCard(ccNum):
-    loop = False
     ccNumlist = str(ccNum) #converting credit card number to string for easier manipulation
     reverse = ccNumlist[::-1] #reversing the string to make it easier to apply the mod 10 algorithm
     sum1 = 0 #this is for the numbers that are doubled
@@ -22,15 +21,19 @@ def ValidateCreditCard(ccNum):
             sum2 += digit
     
     total = sum1 + sum2
+    return total
     
-    while loop == False:
-        if total % 10 == 0: #checking if the total modulo 10 is 0
-            print("the credit card number " + str(ccNum) + " is valid.")
-        else:
-            print("Invalid credit card number. Please try again.")
 
 #checking the length of credit card number, and if length is valid then beginning validation of card number
 if len(str(CC)) < 13 or len(str(CC)) > 16:
     print("Invalid credit card number length.")
 else: 
     ValidateCreditCard(CC)
+    loop = False
+    while loop == False:
+        loop = ValidateCreditCard(CC) #exiting the loop after one iteration
+        if loop % 10 == 0: #checking if the total modulo 10 is 0
+            print("the credit card number " + str(CC) + " is valid.")
+        else:
+            loop = False #resetting loop to False to continue the while loop if invalid
+            CC = int(input("Invalid credit card number. Please try again: "))
