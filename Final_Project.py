@@ -43,7 +43,7 @@ def Users_information(): #mostly a place holder for now. (will update later)
     b = input("Email: ")
     c = input("Phone: ")
 
-def shopping_cart_function(): #function that allows user to add items to shopping cart
+def shopping_cart_function(): #function that allows user to add items to shopping cart. (might change in the future, but works for now)
     while True:
         item_id = input("Enter the product ID number to add to your shopping cart your desired product. (or type 'done' to finish): ")
         if item_id.lower() == 'done':
@@ -57,4 +57,5 @@ def shopping_cart_function(): #function that allows user to add items to shoppin
             print(f"Added {quantity} of item ID'd as {item_id} to your shopping cart.")
         else:
             print("Invalid product ID. Please try again.")
+
 shopping_cart_function() #call the shopping cart function to start adding items. (clarity, this is for testing, not final version)
