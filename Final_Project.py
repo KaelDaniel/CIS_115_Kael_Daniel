@@ -58,29 +58,30 @@ def shopping_cart_function(): #function that allows user to add items to shoppin
         else:
             print("Invalid product ID. Please try again.")
 
-credit_card_number = int(input("Please enter your credit card number: "))
+CCN = int(input("Please enter your credit card number: "))
 
-def credit_card_verify(): #function to verify credit card information
-    while True:
-        credit_list = str(credit_card_number) #converting credit card number to a string
-        reverse = credit_list[::-1] #reversing the string
+def credit_card_verify(credit): #function to verify credit card information
+    credit_list = str(credit) #converting credit card number to a string
+    reverse = credit_list[::-1] #reversing the string
 
-        sum1 = 0 #doubled
-        sum2 = 0 #same
+    sum1 = 0 #doubled
+    sum2 = 0 #same
 
-        for num in range(len(reverse)): 
-            number = int(reverse[num]) 
-            if num % 2 == 1: 
-                number *= 2 
-                if number > 9: 
-                    number -= 9
-                sum1 += number
-            else:
-                sum2 += number
-        total = sum1 + sum2
-        if total % 10 == 0:
-            print(f"The credit card number {credit_card_number} is valid.")
-            break
+    for num in range(len(reverse)): 
+        number = int(reverse[num]) 
+        if num % 2 == 1: 
+            number *= 2 
+            if number > 9: 
+                number -= 9
+            sum1 += number
         else:
-            credit_card_number = int(input("Invalid credit card number. Please try again: "))
-credit_card_verify() #function to verify credit card information (testing phase)
+            sum2 += number
+    total = sum1 + sum2
+    if total % 10 == 0:
+        print(f"The credit card number {credit} is valid.")
+    else:
+        credit = int(input("Invalid credit card number. Please try again: "))
+if len(str(CCN)) < 13 or len(str(CCN)) > 16:
+    print("Invalid credit card number length.")
+else: 
+    credit_card_verify(CCN) #function to verify credit card information (testing phase)
