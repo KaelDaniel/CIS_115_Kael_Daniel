@@ -67,8 +67,8 @@ def credit_card_verify(credit): #function to verify credit card information
     sum1 = 0 #doubled
     sum2 = 0 #same
 
-    for num in range(len(reverse)): 
-        number = int(reverse[num]) 
+    for num in range(len(reverse)): #iterating through each digit in the reversed credit card number
+        number = int(reverse[num]) #converting each character back to integer for calculation
         if num % 2 == 1: 
             number *= 2 
             if number > 9: 
@@ -77,11 +77,15 @@ def credit_card_verify(credit): #function to verify credit card information
         else:
             sum2 += number
     total = sum1 + sum2
-    if total % 10 == 0:
-        print(f"The credit card number {credit} is valid.")
-    else:
-        credit = int(input("Invalid credit card number. Please try again: "))
-if len(str(CCN)) < 13 or len(str(CCN)) > 16:
+    return total
+if len(str(CCN)) < 13 or len(str(CCN)) > 19: #checking the length of credit card number
     print("Invalid credit card number length.")
 else: 
     credit_card_verify(CCN) #function to verify credit card information (testing phase)
+    cycle = False
+    while cycle == False:
+        cycle = credit_card_verify(CCN)
+        if cycle % 10 == 0: #checking if the total modulo 10 is 0
+#this is empty for now as I will add stuff next week to make it flow with the rest of the program
+        else:
+#also empty for now
