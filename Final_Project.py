@@ -12,7 +12,7 @@ def Print_box(): #defined the function that holds the product catalog
     print("	----------------------------------------------------------------")
 
 Product_Catalog = {
-"1":12.00, 
+"1":(12.00, "yeet"), 
 "2":2900.00, 
 "3":48.00, 
 "4":156.00, 
@@ -78,14 +78,16 @@ def credit_card_verify(credit): #function to verify credit card information
             sum2 += number
     total = sum1 + sum2
     return total
-if len(str(CCN)) < 13 or len(str(CCN)) > 19: #checking the length of credit card number
-    print("Invalid credit card number length.")
-else: 
-    credit_card_verify(CCN) #function to verify credit card information (testing phase)
-    cycle = False
-    while cycle == False:
-        cycle = credit_card_verify(CCN)
-        if cycle % 10 == 0: #checking if the total modulo 10 is 0
-#this is empty for now as I will add stuff next week to make it flow with the rest of the program
-        else:
-#also empty for now
+#if len(str(CCN)) < 13 or len(str(CCN)) > 19: #checking the length of credit card number
+#    print("Invalid credit card number length.")
+#else: 
+#    credit_card_verify(CCN) #function to verify credit card information (testing phase)
+#    cycle = False
+#    while cycle == False:
+#        cycle = credit_card_verify(CCN)
+#        if cycle % 10 == 0: #checking if the total modulo 10 is 0
+#            print("yeet") #placeholder for now
+#        else:
+#            cycle = False 
+#            CCN = int(input("Invalid credit card number. Please try again: ")) #prompting user to re-enter credit card number if the card was wrong, until a valid card is entered
+print(Product_Catalog["1"][1])
