@@ -19,29 +19,8 @@ Product_Catalog = {
 "5":(359.00, "smt_tv_100", "TCL Smart TV.", 225)
 } #dictionary that uses the product id as the key holding the rest of the info
 
-Print_box() #call the function to print the product catalog as the start of the program
-
 Shopping_cart = {} #empty dictionary to hold the shopping cart items
 
-def Users_information(): #mostly a place holder for now. (will update later)
-    User_info = {
-        "first name":v,
-        "last name":w,
-        "address":x,
-        "city":y,
-        "state":z,
-        "zip/post code":a,
-        "email":b,
-        "phone":c,}
-    print("Please enter your personal information:")
-    v = input("First Name: ")
-    w = input("Last Name: ")
-    x = input("Address: ")
-    y = input("City: ")
-    z = input("State: ")
-    a = input("Zip/Post Code: ")
-    b = input("Email: ")
-    c = input("Phone: ")
 
 def shopping_cart_function(): #function that allows user to add items to shopping cart. (might change in the future, but works for now)
     while True:
@@ -57,6 +36,10 @@ def shopping_cart_function(): #function that allows user to add items to shoppin
             print(f"Added {quantity} of item ID'd as {item_id} to your shopping cart.")
         else:
             print("Invalid product ID. Please try again.") #if something was incorrect, then cycle/loop
+
+Print_box() #call the function to print the product catalog as the start of the program
+
+shopping_cart_function() #calling the shopping cart function
 
 CCN = int(input("Please enter your credit card number: ")) #credit card input
 
@@ -78,6 +61,10 @@ def credit_card_verify(credit): #function to verify credit card information
             sum2 += number
     total = sum1 + sum2
     return total
+
+
+
+
 if len(str(CCN)) < 13 or len(str(CCN)) > 19: #checking the length of credit card number
     print("Invalid credit card number length.")
 else: 
@@ -86,7 +73,17 @@ else:
     while cycle == False:
         cycle = credit_card_verify(CCN)
         if cycle % 10 == 0: #checking if the total modulo 10 is 0
-            print("yeet") #placeholder for now
+            print("please enter the card's expiration date and your personal information.")
+            exp_date = input("Expiration Date (MM/YY): ")
+            v = input("First Name: ")
+            w = input("Last Name: ")
+            x = input("Address: ")
+            y = input("City: ")
+            z = input("State: ")
+            a = input("Zip/Post Code: ")
+            b = input("Email: ")
+            c = input("Phone: ")
+            cycle = True
         else:
             cycle = False 
             CCN = int(input("Invalid credit card number. Please try again: ")) #prompting user to re-enter credit card number if the card was wrong, until a valid card is entered
