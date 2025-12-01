@@ -19,6 +19,9 @@ Product_Catalog = {
 "5":(359.00, "smt_tv_100", "TCL Smart TV.", 225)
 } #dictionary that uses the product id as the key holding the rest of the info
 
+qty = [Product_Catalog[item][3] for item in Product_Catalog]
+#line 22 is meant to help seperate the product quatity from the user inputed quantity
+
 Shopping_cart = {} #empty dictionary to hold the shopping cart items
 
 
@@ -34,6 +37,9 @@ def shopping_cart_function(): #function that allows user to add items to shoppin
             else:
                 Shopping_cart[item_id] = quantity #adds the item and quantity
             print(f"Added {quantity} of item ID'd as {item_id} to your shopping cart.")
+            if quantity > Product_Catalog[item_id][3]: #checking if the quantity requested is more than the stock available
+                print("Warning: Requested quantity exceeds available stock, please adjust your order.")
+                print(f"Warning: Only {Product_Catalog[item_id][3]} items are in stock.") #if so, warn the user
         else:
             print("Invalid product ID. Please try again.") #if something was incorrect, then cycle/loop
 
@@ -63,8 +69,6 @@ def credit_card_verify(credit): #function to verify credit card information
     return total
 
 
-
-
 if len(str(CCN)) < 13 or len(str(CCN)) > 19: #checking the length of credit card number
     print("Invalid credit card number length.")
 else: 
@@ -87,3 +91,33 @@ else:
         else:
             cycle = False 
             CCN = int(input("Invalid credit card number. Please try again: ")) #prompting user to re-enter credit card number if the card was wrong, until a valid card is entered
+
+def billing_and_shipping_and_cart(y): #function to generate receipt
+    print("----------------------------------------------------------------------------------------")
+    print("                                            Billing/Shipping Information:")
+    print("----------------------------------------------------------------------------------------")
+    print(" ")
+    print(f"{v} {w}")
+    print(f"Adress: {x}")
+    print(f"City: {y}")
+    print(f"State: {z}")
+    print(f"Zip/Post Code: {a}")
+    print(f"Email: {b}")
+    print(f"Phone: {c}")
+    print(" ")
+    print("----------------------------------------------------------------------------------------")
+    print("                                               Shopping Cart Information:")
+    print("----------------------------------------------------------------------------------------")
+    print(" ")
+    print("****************************************************************************************************************************")
+    print("                SKU             Qty          Price                      Description                                 Total")
+    print("****************************************************************************************************************************")
+    cart_total = 0
+    for item_id, quantity in Shopping_cart.items():
+        price, sku, description, y, = Product_Catalog[item_id]
+        total_price = price * quantity
+        cart_total += total_price
+        print(f"                {sku}          {quantity}       ${price:.2f}               {description}               ${total_price:.2f}")
+    print("********************************************************************")
+    print(f"cart Total: ${cart_total:.2f}")
+billing_and_shipping_and_cart(qty) #calling the function to generate receipt
