@@ -77,8 +77,8 @@ else:
     while cycle == False:
         cycle = credit_card_verify(CCN)
         if cycle % 10 == 0: #checking if the total modulo 10 is 0
-            print("please enter the card's expiration date and your personal information.")
-            exp_date = input("Expiration Date (MM/YY): ")
+            print("please enter the card's expiration date and your personal information.") 
+            exp_date = input("Expiration Date (MM/YY): ") #user inputs for user information
             v = input("First Name: ")
             w = input("Last Name: ")
             x = input("Address: ")
@@ -96,28 +96,26 @@ def billing_and_shipping_and_cart(y): #function to generate receipt
     print("----------------------------------------------------------------------------------------")
     print("                                            Billing/Shipping Information:")
     print("----------------------------------------------------------------------------------------")
-    print(" ")
-    print(f"{v} {w}")
+    print(f"{v} {w}") #printing the billing and shipping information
     print(f"Adress: {x}")
     print(f"City: {y}")
     print(f"State: {z}")
     print(f"Zip/Post Code: {a}")
     print(f"Email: {b}")
     print(f"Phone: {c}")
-    print(" ")
-    print("----------------------------------------------------------------------------------------")
+    print("----------------------------------------------------------------------------------------------------------------------------")
     print("                                               Shopping Cart Information:")
-    print("----------------------------------------------------------------------------------------")
-    print(" ")
+    print("----------------------------------------------------------------------------------------------------------------------------")
     print("****************************************************************************************************************************")
     print("                SKU             Qty          Price                      Description                                 Total")
     print("****************************************************************************************************************************")
-    cart_total = 0
-    for item_id, quantity in Shopping_cart.items():
-        price, sku, description, y, = Product_Catalog[item_id]
-        total_price = price * quantity
-        cart_total += total_price
-        print(f"                {sku}          {quantity}       ${price:.2f}               {description}               ${total_price:.2f}")
-    print("********************************************************************")
-    print(f"cart Total: ${cart_total:.2f}")
+    cart_total = 0 #variable to hold the cart total
+    for item_id, quantity in Shopping_cart.items(): #iterating through each item in the shopping cart
+        price, sku, description, y, = Product_Catalog[item_id] #getting the product details from the catalog
+        total_price = price * quantity #calculating the total price for each item based on quantity
+        cart_total += total_price #adding to the cart total
+        print(f"                {sku}          {quantity}       ${price:.2f}               {description}               ${total_price:.2f}") #printing each item in the cart with its details
+    print("*****************************************************************************************************************************")
+    print(f"            cart Total: ${cart_total:.2f}") #printing the cart total at the end of the receipt
+
 billing_and_shipping_and_cart(qty) #calling the function to generate receipt
